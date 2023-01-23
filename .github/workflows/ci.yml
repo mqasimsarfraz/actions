@@ -27,19 +27,16 @@ jobs:
       - name: Write Dockerfile
         run: |
           echo "FROM alpine:latest" > Dockerfile
-          echo "RUN dd if=/dev/zero of=layer bs=1024KB count=500" >> Dockerfile
-          echo "RUN dd if=/dev/zero of=layer bs=1024KB count=500" >> Dockerfile
-          echo "RUN dd if=/dev/zero of=layer bs=1024KB count=500" >> Dockerfile
-          echo "RUN dd if=/dev/zero of=layer bs=1024KB count=500" >> Dockerfile
-          echo "RUN dd if=/dev/zero of=layer bs=1024KB count=500" >> Dockerfile
-          echo "RUN dd if=/dev/zero of=layer bs=1024KB count=500" >> Dockerfile
-          echo "RUN dd if=/dev/zero of=layer bs=1024KB count=500" >> Dockerfile
-          echo "RUN dd if=/dev/zero of=layer bs=1024KB count=500" >> Dockerfile
-          echo "RUN dd if=/dev/zero of=layer bs=1024KB count=500" >> Dockerfile
-          echo "RUN dd if=/dev/zero of=layer bs=1024KB count=500" >> Dockerfile
+          echo "RUN dd if=/dev/zero of=layer bs=1024KB count=1000" >> Dockerfile
+          echo "RUN dd if=/dev/zero of=layer bs=1024KB count=1000" >> Dockerfile
+          echo "RUN dd if=/dev/zero of=layer bs=1024KB count=1000" >> Dockerfile
+          echo "RUN dd if=/dev/zero of=layer bs=1024KB count=1000" >> Dockerfile
+          echo "RUN dd if=/dev/zero of=layer bs=1024KB count=1000" >> Dockerfile
+          echo "RUN dd if=/dev/zero of=layer bs=1024KB count=1000" >> Dockerfile
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
           context: .
-          outputs: type=registry,dest=ghcr.io/${{ github.repository_owner }}/test:5g,push=true,compression=uncompressed
-          tags: ghcr.io/${{ github.repository_owner }}/test:5g
+          outputs: type=registry,dest=ghcr.io/${{ github.repository_owner }}/test:6g,push=true,compression=uncompressed
+          platforms: linux/amd64,linux/arm64
+          tags: ghcr.io/${{ github.repository_owner }}/test:6g
